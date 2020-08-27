@@ -1,0 +1,341 @@
+---
+title: "git R done"
+author: "Kevin Kiley"
+date: "8/26/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+1. Git
+2. Github
+
+---
+
+What is Git?
+
+- Open-source
+- Version-control software
+
+---
+
+- What is version control?
+
+Initially:
+
+- A way to track what you did and when you did it. 
+
+- Go back to a previous point in time if you make a severe error.
+
+Eventually: 
+
+- Work on the same thing together
+
+- This is really what it's useful for... 
+
+---
+
+Version control is NOT:
+
+- cloud backup
+
+- will not save you when your computer crashes...
+
+- Back your stuff up.
+
+
+---
+
+git works in our new (?) friend (?): The terminal/command line!
+
+- On Windows, this is called "Command Prompt":
+
+- Start > All Programs > Accessories > Command Prompt
+
+- On Mac, this is called "terminal"
+
+- Applications > Utilities > Terminal
+
+---
+
+**There is a github desktop client**
+
+https://desktop.github.com/
+
+I do not know how this works... So I cannot help you with this.
+
+---
+
+What you see:
+
+- Some kind of prompt $, >, %
+
+- Exactly what is going to depend on your computer/OS
+
+Where are you? 
+
+- Assuming you haven't done anything: You're in your home directory. For me that's "kkiley"
+
+- It's a folder on your computer. Figre out what it is... 
+
+- See what's in your home directory with `ls`
+
+- Go into a new folder using `cd <folder_name>`
+
+- Go back a level using `cd ..`
+
+- Can traverse multiple levels `cd Dropbox/duke_stuff/healthvalues`
+
+- Windows slashes are the other way...
+
+---
+
+Install git:
+
+http://git-scm.com/downloads
+
+---
+
+Configure user name and email:
+
+- Go to terminal/command prompt (I'm just going to call it the terminal...)
+
+git config --global user.name "Kevin Kiley"
+
+git config --global user.email "krkiley@gmail.com"
+
+
+---
+
+Create your first repository
+
+git init new_project
+
+- you can also initialize a folder once you're in it
+
+create a folder called "my_project"
+
+- go into that folder on the terminal
+
+- `git init`
+
+check out what's going on here
+
+- `git status`
+
+- Tells you branch, commits
+
+---
+
+Make a new file in R, or anything, and save it in that folder.
+
+- `git status`: Tells you what changes have been made since the last commit. It says you have an untracked filed. Just means "there's something in this folder that hasn't been added to the project."
+
+- `git add .`: Adds all files in the folder to the project
+
+- `git status`: Tells you that you have a file that has changed, but needs to be commited
+
+- `git commit -m "<commit message>"`
+
+- `git status`: Tells you you're on branch, nothing to commit
+
+
+---
+
+- Go and edit the file
+
+- `git status`: Tells you that you have modified a file. Uncommited changes.
+
+- Same process:
+
+- `git add .`
+
+- `git commit -m <new commit message>`
+
+---
+
+Branches:
+
+Create a new branch (and move to that branch):
+
+- `git checkout -b new_branch`
+
+- `git status` now tells you you're on branch new_branch. Nothing to commit.
+
+- Make another new file, save it in this folder
+
+- `git status`... `git add .` ... `git commit -m "<message>"`
+
+- `git checkout master`
+
+... file disappears
+
+- `git checkout new_branch`
+
+... file comes back
+
+
+----
+
+Merge into master:
+
+- create new branch
+
+- `git checkout <new branch>`
+
+- make edits
+
+- `git add .`
+
+- `git commit -m "<message>"`
+
+- Switch to master branch
+
+- `git merge <new branch>`
+
+
+
+-----
+
+Standard (local) workflow:
+
+1. initialize a folder.
+
+2. create a branch
+
+3. Edit 
+
+4. git add .
+
+5. git commit -m message
+
+6. Repeat 3 - 5 several times
+
+7. When you're ready, merge to master.
+
+8. Repeat 2 - 7.
+
+
+----
+
+
+**Github**
+
+https://github.com/
+
+Online distributed version control.
+
+Why use github
+
+- collaborate on projects.
+
+- access your code from multiple places
+
+- Let other people access your code.
+
+- This IS a way to backup your work... 
+
+
+----
+
+
+
+- Repository ("repo") - a project live on github... stored remotely.
+
+- This IS a way to back up your work. 
+
+
+---
+
+Topleft corner: <create> a repository
+
+- Give it a name 
+
+- Make it public or private
+
+- Create a readme file
+
+---
+
+
+Cloning repos
+
+- You probably want a repo on your desktop...
+
+- click on new repository
+
+- clone to desktop
+
+- using command prompt, navigate to where you want this folder to be on your computer
+
+---
+
+
+Getting to/from the online repo
+
+git stores this destination as "origin" 
+
+`git push origin` will push your code to the online repo
+
+`git pull origin` will pull your code from the online repo
+
+
+
+
+---
+
+Branching
+
+- Way for multiple people to work on a repo at once...
+
+- Create a new branch using the branch button
+
+- Edit the text
+
+- Commit the change
+
+- Compare to master
+
+- Create pull request
+
+- Merge pull request
+
+---
+
+
+
+Now you do it...
+
+- make a new branch on my repo... 
+
+- clone to your local
+
+- git checkout <your branch>
+
+- Make some edits to the readme... make a new file... store it in there...
+
+- `git push origin`...
+
+- Look at what happens to the repo
+
+
+---
+
+If you create a new brach on local 
+
+git push -u origin <new_branch_name>
+
+
+---
+
+When you push to my branch, and you go check it out, it's going to ask you to create a pull request. 
+
+that's how github manages competing code.. 
+
+
+
+
+
